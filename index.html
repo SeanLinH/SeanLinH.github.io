@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>林士桓 Sean Lin · AI Architect</title>
+  <meta name="description" content="林士桓 Sean Lin — AI Architect，主導 MiTAC Agent Builder 多代理人平台；Multi-Agent Systems 設計者、Harness Engineering 方法論提出者。" />
+
+  <!-- 溫暖編輯風字體：Fraunces（襯線大標）+ Noto Sans TC（中文內文）-->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <!-- 互動特效：暖色塵粒背景（由 JS 繪製） -->
+  <canvas id="dust-canvas" aria-hidden="true"></canvas>
+  <!-- 互動特效：滑鼠暖光暈 -->
+  <div id="cursor-glow" aria-hidden="true"></div>
+
+  <!-- ══════════ 導覽列 ══════════ -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav__brand">SL<span class="nav__dot">.</span></a>
+    <nav class="nav__links">
+      <a href="#about" class="nav__link">關於</a>
+      <a href="#skills" class="nav__link">專長</a>
+      <a href="#experience" class="nav__link">經歷</a>
+      <a href="#speaking" class="nav__link">演講</a>
+      <a href="#contact" class="nav__link nav__link--cta">聯絡</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- ══════════ Hero 主視覺 ══════════ -->
+    <section class="hero">
+      <div class="hero__inner">
+        <p class="hero__eyebrow reveal">你好，我是</p>
+        <h1 class="hero__name reveal">
+          林士桓<span class="hero__name-en"> · Sean Lin</span>
+        </h1>
+        <!-- 打字機特效輪播的角色（在 assets/js/main.js 頂部 ROLES 可增減） -->
+        <p class="hero__role reveal">
+          <span class="hero__role-static">我是一位</span>
+          <span class="typewriter" id="typewriter"></span>
+        </p>
+        <p class="hero__tagline reveal">
+          在商業思維與 AI 工程之間，設計能真正落地的多代理人系統。
+        </p>
+        <div class="hero__actions reveal">
+          <a href="#experience" class="btn btn--primary">查看我的經歷</a>
+          <a href="https://github.com/SeanLinH" target="_blank" rel="noopener" class="btn btn--ghost">GitHub ↗</a>
+        </div>
+      </div>
+      <div class="hero__scroll" aria-hidden="true">
+        <span>向下捲動</span>
+        <span class="hero__scroll-line"></span>
+      </div>
+    </section>
+
+    <!-- ══════════ About 關於我 ══════════ -->
+    <section class="section" id="about">
+      <div class="section__head reveal">
+        <span class="section__index">01</span>
+        <h2 class="section__title">關於我</h2>
+      </div>
+      <div class="about">
+        <p class="about__lead reveal">
+          我相信「懂商業的工程師」與「懂技術的商業人」都很稀缺 — 我想同時是這兩者。
+        </p>
+        <p class="about__body reveal">
+          我是林士桓（Sean），目前擔任<strong>神通資訊科技（MiTAC Information Technology，聯華神通集團旗下）</strong>的 AI Architect，
+          主導 <strong>MiTAC Agent Builder</strong> 的端到端設計與開發 —
+          這是一套企業級、可地端部署（on-premises）的多代理人（Multi-Agent）平台，具備節點式低程式碼（node-based low-code）畫布介面。
+        </p>
+        <p class="about__body reveal">
+          除了本職工作，我也共同營運 <strong>AXE（AI × Entrepreneur）</strong> — 一間鎖定台灣中小企業的 AI 轉型顧問服務。
+        </p>
+        <p class="about__body reveal">
+          我的背景橫跨傳統電子工程訓練與商管思維，並在過去幾年間持續深耕 AI 工程 —
+          從電腦視覺、生成式 AI，到現在的多代理人系統與企業級 Agent 平台架構。
+          我也持續建構個人方法論框架 <strong>Harness Engineering</strong>，並透過技術寫作與公開演講累積個人品牌。
+        </p>
+        <ul class="about__facts">
+          <li class="reveal"><span class="about__fact-k">現職</span><span class="about__fact-v">AI Architect · 神通資訊</span></li>
+          <li class="reveal"><span class="about__fact-k">專長</span><span class="about__fact-v">Multi-Agent Systems</span></li>
+          <li class="reveal"><span class="about__fact-k">學歷</span><span class="about__fact-v">元智大學 MBA</span></li>
+          <li class="reveal"><span class="about__fact-k">方法論</span><span class="about__fact-v">Harness Engineering</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ══════════ Skills 技術專長 ══════════ -->
+    <section class="section" id="skills">
+      <div class="section__head reveal">
+        <span class="section__index">02</span>
+        <h2 class="section__title">技術專長</h2>
+      </div>
+      <!-- ✏️ 技能以標籤呈現，依實際情況增刪 <span class="chip"> 即可 -->
+      <div class="skills">
+        <article class="skill-card tilt reveal">
+          <h3 class="skill-card__title">AI / Agent 系統</h3>
+          <div class="chips">
+            <span class="chip chip--accent">Multi-Agent Systems</span>
+            <span class="chip">LangGraph</span>
+            <span class="chip">Google ADK</span>
+            <span class="chip">MCP</span>
+            <span class="chip">LlamaIndex</span>
+            <span class="chip">LiteLLM</span>
+            <span class="chip">Claude Agent Skills</span>
+          </div>
+        </article>
+
+        <article class="skill-card tilt reveal">
+          <h3 class="skill-card__title">後端 / 資料</h3>
+          <div class="chips">
+            <span class="chip">Python</span>
+            <span class="chip">FastAPI</span>
+            <span class="chip">PostgreSQL</span>
+            <span class="chip">pgvector</span>
+            <span class="chip">Milvus / Qdrant</span>
+          </div>
+        </article>
+
+        <article class="skill-card tilt reveal">
+          <h3 class="skill-card__title">前端</h3>
+          <div class="chips">
+            <span class="chip">React</span>
+            <span class="chip">TypeScript</span>
+            <span class="chip">Zustand</span>
+            <span class="chip">shadcn/ui</span>
+          </div>
+        </article>
+
+        <article class="skill-card tilt reveal">
+          <h3 class="skill-card__title">基礎設施 / MLOps</h3>
+          <div class="chips">
+            <span class="chip">Docker</span>
+            <span class="chip">Air-gapped 部署</span>
+            <span class="chip">Keycloak / OIDC</span>
+            <span class="chip">壓力 / 負載測試</span>
+          </div>
+        </article>
+
+        <article class="skill-card tilt reveal">
+          <h3 class="skill-card__title">電腦視覺（早期經歷）</h3>
+          <div class="chips">
+            <span class="chip">YOLOv5</span>
+            <span class="chip">GAN</span>
+            <span class="chip">OpenPose</span>
+            <span class="chip">DeepLab V3+</span>
+            <span class="chip">DeepMatting</span>
+          </div>
+        </article>
+
+        <article class="skill-card tilt reveal">
+          <h3 class="skill-card__title">方法論 / 實踐</h3>
+          <div class="chips">
+            <span class="chip chip--accent">Harness Engineering</span>
+            <span class="chip">Spec-driven Dev</span>
+            <span class="chip">TDD</span>
+            <span class="chip">Zettelkasten</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ══════════ Experience 經歷 ══════════ -->
+    <section class="section" id="experience">
+      <div class="section__head reveal">
+        <span class="section__index">03</span>
+        <h2 class="section__title">工作經歷</h2>
+      </div>
+      <!--
+        ✏️ 時間軸：每個 <li> 是一段經歷。
+        標 [請補充] 的日期請填入真實年月。
+      -->
+      <ol class="timeline">
+        <li class="timeline__item reveal">
+          <span class="timeline__date">現在</span>
+          <div class="timeline__card tilt">
+            <h3 class="timeline__role">AI Architect</h3>
+            <p class="timeline__org">神通資訊科技 MiTAC Information Technology</p>
+            <ul class="timeline__points">
+              <li>主導 <strong>MiTAC Agent Builder</strong>：企業級、地端（air-gapped）多代理人平台，含低程式碼節點畫布，端到端設計與開發</li>
+              <li>設計客戶端 air-gapped Linux 環境的 Docker 服務部署腳本</li>
+              <li>設計 MCP OAuth 多租戶（multi-tenant）架構，導入 Keycloak / OIDC 自架身份驗證</li>
+              <li>向量資料庫方案評估（pgvector vs. Milvus / Qdrant）與 LLM / Agent 系統壓力、負載測試</li>
+              <li>提供 Agent Builder 銷售簡報與教育訓練，鎖定 SI 夥伴、中小企業與政府客戶</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="timeline__item reveal">
+          <span class="timeline__date">現在</span>
+          <div class="timeline__card tilt">
+            <h3 class="timeline__role">共同營運者</h3>
+            <p class="timeline__org">AXE（AI × Entrepreneur）</p>
+            <ul class="timeline__points">
+              <li>面向台灣中小企業的 AI 轉型顧問服務</li>
+              <li>參與聯盟商業模式設計、定價策略與 SME 市場推廣（go-to-market）規劃</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="timeline__item reveal">
+          <span class="timeline__date">2022 – 2024</span>
+          <div class="timeline__card tilt">
+            <h3 class="timeline__role">AI Engineer</h3>
+            <p class="timeline__org">訊智達／欣興電子 Unimicron</p>
+            <ul class="timeline__points">
+              <li>開發 YOLOv5 即時行為監控系統，用於製造業異常行為偵測</li>
+              <li>成果：效率提升 80%、產能吞吐量提升 40% <span class="tag-note">[請確認可公開]</span></li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="timeline__item reveal">
+          <span class="timeline__date">2019 – 2020</span>
+          <div class="timeline__card tilt">
+            <h3 class="timeline__role">Researcher</h3>
+            <p class="timeline__org">台灣人工智慧學校 Taiwan AI Academy</p>
+            <ul class="timeline__points">
+              <li>研究基於 GAN 的真人轉卡通角色生成（human-to-cartoon transformation）</li>
+              <li>技術：OpenPose、DeepLab V3+、DeepMatting</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="timeline__item reveal">
+          <span class="timeline__date">2017 – 2019</span>
+          <div class="timeline__card tilt">
+            <h3 class="timeline__role">Project Manager</h3>
+            <p class="timeline__org">航見科技 HANG-JIAN TECH（無人機新創）</p>
+          </div>
+        </li>
+      </ol>
+
+      <!-- 教育背景 -->
+      <div class="section__head section__head--sub reveal" style="margin-top:3.5rem;">
+        <span class="section__index">·</span>
+        <h2 class="section__title section__title--sub">教育背景</h2>
+      </div>
+      <ol class="timeline">
+        <li class="timeline__item reveal">
+          <span class="timeline__date">2016 – 2018</span>
+          <div class="timeline__card tilt">
+            <h3 class="timeline__role">MBA 企業管理碩士</h3>
+            <p class="timeline__org">元智大學 Yuan-Ze University</p>
+          </div>
+        </li>
+        <li class="timeline__item reveal">
+          <span class="timeline__date">2012 – 2016</span>
+          <div class="timeline__card tilt">
+            <h3 class="timeline__role">光電工程學系 學士</h3>
+            <p class="timeline__org">元智大學 Yuan-Ze University</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ══════════ Harness Engineering 方法論（特色帶） ══════════ -->
+    <section class="harness" id="harness">
+      <div class="harness__inner reveal">
+        <span class="section__index">04</span>
+        <h2 class="harness__title">Harness Engineering</h2>
+        <p class="harness__lead">我提出並持續發展的個人工作方法論框架，已應用於簡報製作、部落格內容與個人品牌經營。</p>
+        <ol class="harness__flow">
+          <li class="harness__step"><span>Define</span><em>定義</em></li>
+          <li class="harness__arrow" aria-hidden="true">→</li>
+          <li class="harness__step"><span>Execute</span><em>執行</em></li>
+          <li class="harness__arrow" aria-hidden="true">→</li>
+          <li class="harness__step"><span>Evaluate</span><em>評估</em></li>
+          <li class="harness__arrow" aria-hidden="true">→</li>
+          <li class="harness__step"><span>Observe</span><em>觀察</em></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ══════════ Speaking 演講與社群 ══════════ -->
+    <section class="section" id="speaking">
+      <div class="section__head reveal">
+        <span class="section__index">05</span>
+        <h2 class="section__title">演講與社群</h2>
+      </div>
+      <ul class="speaking">
+        <li class="speaking__item reveal">
+          <span class="speaking__tag">2025</span>
+          <div>
+            <h3 class="speaking__title">TAAI 2025 · 主題演講</h3>
+            <p class="speaking__desc">Multi-Agent 系統</p>
+          </div>
+        </li>
+        <li class="speaking__item reveal">
+          <span class="speaking__tag">講者</span>
+          <div>
+            <h3 class="speaking__title">AI Talk 活動講者</h3>
+            <p class="speaking__desc">AI 工程與 Agent 實務分享</p>
+          </div>
+        </li>
+        <li class="speaking__item reveal">
+          <span class="speaking__tag">社群</span>
+          <div>
+            <h3 class="speaking__title">Dallas Taiwan Chamber of Commerce</h3>
+            <p class="speaking__desc">活躍於商務開發（BD）社群</p>
+          </div>
+        </li>
+        <li class="speaking__item reveal">
+          <span class="speaking__tag">教育</span>
+          <div>
+            <h3 class="speaking__title">MiTAC Agent Builder 教育訓練</h3>
+            <p class="speaking__desc">為客群提供產品培訓課程</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ══════════ Contact 聯絡 ══════════ -->
+    <section class="section section--contact" id="contact">
+      <div class="contact reveal">
+        <p class="contact__eyebrow">有合作、演講或想聊聊 AI？</p>
+        <h2 class="contact__title">歡迎與我聯絡</h2>
+        <!-- ✏️ 聯絡資訊 -->
+        <a class="contact__mail" href="mailto:sean.lin040@gmail.com">sean.lin040@gmail.com</a>
+        <div class="contact__socials">
+          <a href="https://github.com/SeanLinH" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/seanlin-tw/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://shihuan.info" target="_blank" rel="noopener">Blog</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> 林士桓 Sean Shih-Huan Lin</span>
+    <span class="footer__made">Designed &amp; built with ❤</span>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
